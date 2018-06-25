@@ -1,0 +1,66 @@
+\def\year{2018}\relax
+%File: formatting-instruction.tex
+\documentclass[fleqn,10pt]{wlscirep} %DO NOT CHANGE THIS
+% \usepackage{aaai18}  %Required
+\usepackage{times}  %Required
+\usepackage{helvet}  %Required
+\usepackage{courier}  %Required
+\usepackage{url}  %Required
+\usepackage{graphicx}  %Required
+% \frenchspacing  %Required
+% \setlength{\pdfpagewidth}{8.5in}  %Required
+% \setlength{\pdfpageheight}{11in}  %Required
+
+\usepackage{xcolor}
+%\usepackage{amsmath}
+%\usepackage{verbatim}
+%\usepackage{graphics}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{multirow}
+\usepackage{url}
+%%decrease spacing 
+\usepackage{times}
+\usepackage{comment}
+%
+%\newtheorem{thm}{Theorem}
+%\newtheorem{corr}{Corollary}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{pty}{Property}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\sj}[1]{\green{#1}}
+\newcommand{\ns}[1]{\red{#1}}
+
+
+%PDF Info Is Required:
+%\pdfinfo{
+%	/Title (2018 Formatting Instructions for Authors Using LaTeX)
+%	/Author (AAAI Press Staff)}
+\setcounter{secnumdepth}{0}  
+	% The file aaai.sty is the style file for AAAI Press 
+	% proceedings, working notes, and technical reports.
+	%
+	
+\title{Anatomy of support: Measuring properties of on-line supportive conversations}
+
+\begin{abstract}
+The boom in Internet connectivity has allowed people to express themselves using varied sets of networked media. This also involves people who express distress to seek help and comfort through the medium of  on-line forums and blogs. In this paper we try to dissect the dynamics through which distress calls are met in terms of conversational interactions and how they differ from a general non-supportive ones. We do so by first formalizing a graph based abstraction of nested conversations, considering the topical nature of replies to a message. We then relate different metrics that differentiate these conversations to a popular theory of community support. We specifically concentrate on conversations pertaining to expression of suicidal thoughts.  We experimentally show that supportive conversations are measurably different from generic ones using several topological measures and we discuss that these measures map well on the offline features of a supportive community. We show that supportive conversations are more urgent and involved and are carried on by an active topical discussion.  
+\end{abstract}
+\begin{document}
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+
+
+\input{Sections/Introduction}
+\input{Sections/Results}
+\input{Sections/Discussion}
+\input{Sections/Methods}
+
+
+\bibliography{replyGraphs}
+\end{document}

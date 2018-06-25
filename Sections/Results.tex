@@ -1,0 +1,196 @@
+\section{Results}
+
+We concentrate in a comparative study between Suicide Watch and the baseline, becasue this particular community has been
+Particularly Suicide watch community consists of over 78k subscribers and reader, however is supported by mere 12 Moderators according to last count. These moderators are volunteers and do have a training, albeit through experience. All the moderators have been in that role for at least 3 years and the oldest goes as far as December 2008. 
+
+As such it is valuable to understand how is a community like r/SuicideWatch thriving and in what aspects is this community similar or dis-similar from other casual subreddits. 
+
+\subsection{Thread Engagement}
+One thing to measure conversation was by difference or similarities in engagement with a thread in Subreddits. We look at two prime metrics, 1) Distribution of unique participants in a particular thread  2) Maximum Depth of a branch in the Reply graph of the thread . 
+Figure \ref{fig:depthDist} shows the distribution of maximum depths across all Reply graphs for SW and AS subreddits. The SW theads depths have a median depth of 5 and mean of 7.5 compared to a median depth of 1 and mean of 1.7 for AS subreddits. This shows that on an average the longest branch of reply graphs for SW subreddits are much longer than the baseline subreddit. This is despite the fact that AskScience has a two order of magnitude advantage in terms of subscribed users (14,999,331) over Suicide watch(78,000). 
+
+\begin{figure}[!ht]
+	\centering
+	% \hspace*{-5mm}
+	\subfloat[]{
+		\includegraphics[width=0.45\textwidth, height = 5cm ]{Figures/DepthConversations.png}
+		\label{fig:depthDist}
+	}
+	\subfloat[]{
+		\includegraphics[width=0.45\linewidth, height = 5cm ]{Figures/AuthorParticipation.png}
+		\label{fig:uniqAuthors}
+	}
+\caption{\textsl{ Fig \ref{fig:depthDist} shows the distribution of maximum depths of Reply Graphs for Subreddit r/SuicideWatch and the baseline Frontpage conversations. Fig \ref{fig:uniqAuthors} shows the distribution of unique authors per thread in the two datasets}}
+\end{figure}
+
+
+
+However if we  compare the number of unique users per thread, the two communities do not exibit much difference. SW subreddit has a median of 6 users per thread and a mean of 6.7 users and AS subreddit has a median of 5 users and mean of 13.3 users. So this shows than there is a somewhat uniform participation in terms of unique users responding to $RP$ on SW and a skewed but still at par participation on AS. 
+
+\subsection{Network structure}
+Because of the networked abstraction of threads as described in Sec \ref{Sec:Conversations}, we can now compare subreddits using network structural properties like degree distribution and structural holes in terms of conversations. 
+Figures \ref{fig:repDegreeDist} and \ref{fig:userDegreeDist} show the comparison of degree distributions for both user and Reply graphs for two distinct sub-reddits. Despite having differences in terms of conversation depth, these two communities look similar in terms of classical degree distribution metrics. 
+
+%% this illustration shows what a typical network analysis would be on a 'macro-level' which basically shows that there's no distintive difference between the two datasets, but if one looks at a micro-perspective (all analysis below), there's actually huge differences
+
+\begin{figure}[!ht]
+	\centering
+	% \hspace*{-5mm}
+	\subfloat[]{
+		\includegraphics[width=0.45\textwidth, height = 5cm ]{Figures/degreeDistUgraph.png}
+		\label{fig:rGraphSW}
+	}
+	\subfloat[]{
+		\includegraphics[width=0.45\linewidth, height = 5cm ]{Figures/degreeDistReplyGraph.png}
+		\label{fig:uGraphSW}
+	}
+\caption{Fig \ref{fig:rGraphSW} shows Distribution of degrees for Reply Graphs,  r/SuicideWatch and FrontPage. Fig \ref{fig:uGraphSW} shows the degree distributions for the reply graphs}
+\end{figure}
+
+To compare the extent of similarity, we use the Mann-Whitey-U test. We calculate the test statistic across two sampled set of graphs taken from dataset of user and reply graphs for the baseline and SW subreddits. We then compare the cross dataset statistic with the statistic calculated between samples taken from the same dataset. This gives us an idea about similarity between two datasets. What we found that the distribution of degress for User and Reply graphs for SW and AS subreddits is up to 85\%. 
+
+\subsection{Response Times}
+Understanding the inter message times can act as a good proxy for the urgency in a conversation. To understand how Suicide watch subreddit users responds to a $OP$ compared to other sub-reddits like r/AskScience, we calculate differences between the posting times between consecutive messages in a reply graph. Figure \ref{fig:responseTimeDist} shows comparison using CDFs of inter-message response times for SW and AS subreddits. It can be seen that SW $OP$ are responded with the highest urgency amongst the 4, expecially compared to either the $OP$ or any other users or sub-reddits. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Figures/respTimeDist}
+	\caption{\textsl{ CDF for the distribution of urgency if responses between two messages for OPs and across the forum. The comparison is between r/SuicideWatch and the Frontpage posts }}
+	\label{fig:responseTimeDist}
+\end{figure}
+
+\subsection{Symmetric responses}
+Despite signs of urgency and engagement, we ask the question: what percentage of conversations happening on these subreddits are symmetric in nature ? 
+For this we first define a Symmetric user and a symmetric message. For a user $V_i$ in the user graph $G\{V,E,W\}$ as described in Section \ref{Sec:Conversations} , a symmetric user is a user who interacts with $V_o$ or the $OP$ and receives a response from the $OP$. We find the fraction $$U_{sym}=\frac{\textit{total number of symmetric users }}{\textit{Total users in a thread}}$$
+Figure \ref{fig:symUsers} shows the CDF of $U_{sym}$ across the SW and AS sub-redditor.  The median value for $U_{sym}$ for SW is 20\% where as for AS is 0\%. This shows that SW subreddit engages is a lot more symmetric conversation that the baseline moderated subreddit like AS.
+
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Figures/SymUsers.png}
+	\caption{\textsl{ Figure shows Distribution of fraction of users in a thread participating in symmetric messaging for  r/SuicideWatch and FrontPage. }}
+	\label{fig:symUsers}
+\end{figure}
+
+
+If we define a set of users who engage in symmetric activity with the $OP$ , it would be worth while to investigate how much of the total message activity on the thread is carried out by these set of symmetric users . To calculate this we find the fraction of messages on each thread written as part of this symmetric conversation. Figure \ref{fig:symMessages} shows the trend. It can be see that SW threads contain a higher prevalence of symmetric message exchanges compared to the baseline AS subreddit 
+
+\subsection{Centralities}
+To understand how embedded is the $OP$ in a conversation thread, we compare the betweenness centralities of $OPs$ in the $SW$ dataset with the baseline $FP$ dataset. 
+Betweenness centralit of a node $v$ is defined as 
+\begin{equation}
+	g(v) = \sum_{s \neq v \neq t}\frac{\sigma_{st}(v)}{\sigma_{st}}
+\end{equation}
+where $\sigma_{st}(v)$ is the total number of shortest paths from node $s$ to node $t$ and $\sigma_{st}$ is the number of those paths that pass through $v$.
+
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Figures/AllCentralities.png}
+	\caption{\textsl{ CDF for Median Betweenness Centralities of all users in a conversation graph. The graph shows comparison between  to random threads from the Reddit $FP$ }}
+	\label{fig:AllCentralities}
+\end{figure}
+
+
+Betweenness centrality is a good proxy of understanding how closely linked is a node with the rest of the network. When we calculate this metric for the user graphs we see that Suicide watch $OPs$ tend to have higher centralities compared to generic $FP$ threads. 
+
+
+\subsection{Topical Alignment}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Figures/topicalAlignment.png}
+	\caption{\textsl{ CDF for Median Betweenness Centralities of all users in a conversation graph. The graph shows comparison between  to random threads from the Reddit $FP$ }}
+	\label{fig:TopicalAlignment}
+\end{figure}
+
+
+\subsection{Motif Analysis}
+
+The figure \ref{fig:MotifOccurance} shows the results of the ratios of Baseline and Suicide watch across all 16 motifs. The motifs that deal with triadic closure like Motifs : 210 , 300 , 120D , 201 from Figure \ref{fig:motifs} are almost always over expressed in Suicide Watch. Check out Figures \ref{fig:210} , \ref{fig:300} , \ref{fig:120D}, and \ref{fig:201}. 
+
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figures/TriadVariants}
+	\caption{The 16 different types of motifs that are looked for in the user graph data.}
+	\label{fig:motifs}
+\end{figure}
+
+\begin{figure*}[!t]
+	\centering
+	% \hspace*{-5mm}
+	\subfloat[]{
+		\includegraphics[width=0.22\textwidth, height = 3.5cm ]{Figures/003}
+		\label{fig:003}
+	}
+	\subfloat[]{
+		\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/012}
+		\label{fig:012}
+	}
+	\subfloat[]{
+		\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/102}
+		\label{fig:102}
+	}
+	\subfloat[]{
+		\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/021D}
+		\label{fig:021D}
+	}
+
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/021U}
+	\label{fig:021U}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/021C}
+	\label{fig:021C}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/111D}
+	\label{fig:111D}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/111U}
+	\label{fig:111U}
+	}
+
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/030T}
+	\label{fig:030T}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/030C}
+	\label{fig:030C}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/201}
+	\label{fig:201}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/120D}
+	\label{fig:120D}
+	}
+
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/120U}
+	\label{fig:120U}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/120C}
+	\label{fig:120C}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/210}
+	\label{fig:210}
+	}
+	\subfloat[]{
+	\includegraphics[width=0.22\linewidth, height = 3.5cm ]{Figures/300}
+	\label{fig:300}
+	}
+	
+	\label{fig:MotifOccurance}
+	\vspace{-0.4cm}
+	\caption{ The figure shows comparison of occurrence ratios of 16 motifs, one to one to figure \ref{fig:motifs}. Blue traces are for Suicide watch and Green traces are for Baseline Front pages}
+	\vspace{-0.4cm}
+\end{figure*}
